@@ -1,0 +1,25 @@
+<UI version="4.0" >
+ <class>LearnOpenCVClass</class>
+ <widget class="QWidget" name="LearnOpenCVClass" >
+  <property name="objectName" >
+   <string notr="true">LearnOpenCVClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>LearnOpenCV</string>
+  </property>$centralwidget$
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="LearnOpenCV.qrc"/>
+ </resources>
+ <connections/>
+</UI>
