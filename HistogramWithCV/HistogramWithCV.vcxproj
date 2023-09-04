@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{092EE5DF-A3B4-46FA-A1DF-CB33F7A2890C}</ProjectGuid>
+    <ProjectGuid>{fd843e47-a37c-462d-84f1-e4bdbe5164a1}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
@@ -55,19 +55,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <LibraryPath>C:\opencv3.4.11\build\Debug\x64;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\opencv3.4.11\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\opencv3.4.11\build\Debug\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>C:\opencv3.4.11\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\opencv3.4.11\build\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -97,10 +96,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="HelloCV.qrc" />
-    <QtUic Include="HelloCV.ui" />
-    <QtMoc Include="HelloCV.h" />
-    <ClCompile Include="HelloCV.cpp" />
+    <QtRcc Include="HistogramWithCV.qrc" />
+    <QtUic Include="HistogramWithCV.ui" />
+    <QtMoc Include="HistogramWithCV.h" />
+    <ClCompile Include="HistogramWithCV.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

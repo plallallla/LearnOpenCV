@@ -10,6 +10,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloCV", "HelloCV\HelloCV.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsViewer", "GraphicsViewer\GraphicsViewer.vcxproj", "{A3706A23-2911-44F1-84DE-64BBECE308BE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MarginalizeWithCV", "MarginalizeWithCV\MarginalizeWithCV.vcxproj", "{985741E5-0B22-47CE-8549-F6919378771E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImgCvtWithCV", "ImgCvtWithCV\ImgCvtWithCV.vcxproj", "{1681B14A-52F1-4657-9C80-BF7FD278F897}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FilteringWithCV", "FilteringWithCV\FilteringWithCV.vcxproj", "{7E07D9CF-30D5-4DE6-AD36-69BB4DFD1026}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HistogramWithCV", "HistogramWithCV\HistogramWithCV.vcxproj", "{FD843E47-A37C-462D-84F1-E4BDBE5164A1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugDetect", "BugDetect\BugDetect.vcxproj", "{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +34,26 @@ Global
 		{A3706A23-2911-44F1-84DE-64BBECE308BE}.Debug|x64.Build.0 = Debug|x64
 		{A3706A23-2911-44F1-84DE-64BBECE308BE}.Release|x64.ActiveCfg = Release|x64
 		{A3706A23-2911-44F1-84DE-64BBECE308BE}.Release|x64.Build.0 = Release|x64
+		{985741E5-0B22-47CE-8549-F6919378771E}.Debug|x64.ActiveCfg = Debug|x64
+		{985741E5-0B22-47CE-8549-F6919378771E}.Debug|x64.Build.0 = Debug|x64
+		{985741E5-0B22-47CE-8549-F6919378771E}.Release|x64.ActiveCfg = Release|x64
+		{985741E5-0B22-47CE-8549-F6919378771E}.Release|x64.Build.0 = Release|x64
+		{1681B14A-52F1-4657-9C80-BF7FD278F897}.Debug|x64.ActiveCfg = Debug|x64
+		{1681B14A-52F1-4657-9C80-BF7FD278F897}.Debug|x64.Build.0 = Debug|x64
+		{1681B14A-52F1-4657-9C80-BF7FD278F897}.Release|x64.ActiveCfg = Release|x64
+		{1681B14A-52F1-4657-9C80-BF7FD278F897}.Release|x64.Build.0 = Release|x64
+		{7E07D9CF-30D5-4DE6-AD36-69BB4DFD1026}.Debug|x64.ActiveCfg = Debug|x64
+		{7E07D9CF-30D5-4DE6-AD36-69BB4DFD1026}.Debug|x64.Build.0 = Debug|x64
+		{7E07D9CF-30D5-4DE6-AD36-69BB4DFD1026}.Release|x64.ActiveCfg = Release|x64
+		{7E07D9CF-30D5-4DE6-AD36-69BB4DFD1026}.Release|x64.Build.0 = Release|x64
+		{FD843E47-A37C-462D-84F1-E4BDBE5164A1}.Debug|x64.ActiveCfg = Debug|x64
+		{FD843E47-A37C-462D-84F1-E4BDBE5164A1}.Debug|x64.Build.0 = Debug|x64
+		{FD843E47-A37C-462D-84F1-E4BDBE5164A1}.Release|x64.ActiveCfg = Release|x64
+		{FD843E47-A37C-462D-84F1-E4BDBE5164A1}.Release|x64.Build.0 = Release|x64
+		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Debug|x64.ActiveCfg = Debug|x64
+		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Debug|x64.Build.0 = Debug|x64
+		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Release|x64.ActiveCfg = Release|x64
+		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

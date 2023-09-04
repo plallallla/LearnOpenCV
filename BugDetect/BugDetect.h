@@ -1,8 +1,9 @@
 #pragma once
+
 #include <QtWidgets/QWidget>
 #include <opencv2/opencv.hpp>
-#include "ui_HelloCV.h"
 #include "../GraphicsViewer/pGraphicsViewer.h"
+#include "ui_BugDetect.h"
 
 #pragma comment(lib,"GraphicsViewer.lib")
 #ifdef QT_DEBUG
@@ -11,13 +12,15 @@
 #pragma comment(lib,"opencv_world3411.lib")
 #endif
 
-class HelloCV : public QWidget
+class BugDetect : public QWidget
 {
     Q_OBJECT
 
 public:
-    HelloCV(QWidget *parent = nullptr);
-    ~HelloCV();
+    BugDetect(QWidget *parent = nullptr);
+    ~BugDetect();
 private:
-    Ui::HelloCVClass ui;
+	void show8Gray(const cv::Mat &img);
+private:
+    Ui::BugDetectClass ui;
 };

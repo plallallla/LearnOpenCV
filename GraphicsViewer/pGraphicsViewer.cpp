@@ -24,6 +24,16 @@ void pGraphicsViewer::FitImage()
 	fitInView(impl->scene->GetShowRect(), Qt::KeepAspectRatio);
 }
 
+void pGraphicsViewer::DrawRect(const QRectF & rect, const QPen p)
+{
+	impl->scene->addRect(rect, p);
+}
+
+void pGraphicsViewer::DrawPolygon(const QVector<QPointF>& polygon, const QPen p)
+{
+	impl->scene->addPolygon(polygon, p);
+}
+
 void pGraphicsViewer::mouseDoubleClickEvent(QMouseEvent * _event)
 {
 	FitImage();

@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>HelloCVClass</class>
- <widget class="QWidget" name="HelloCVClass">
+ <class>MarginalizeWithCVClass</class>
+ <widget class="QWidget" name="MarginalizeWithCVClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
-    <height>408</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>HelloCV</string>
+   <string>MarginalizeWithCV</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="2">
-    <widget class="pGraphicsViewer" name="graphicsView"/>
+   <item row="0" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>OriginalImg</string>
+     </property>
+    </widget>
    </item>
-   <item row="0" column="1">
+   <item row="0" column="3">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -30,10 +34,20 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="0">
-    <widget class="QPushButton" name="pushButton">
+   <item row="1" column="0" colspan="4">
+    <widget class="pGraphicsViewer" name="graphicsView"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="pushButton_2">
      <property name="text">
-      <string>OpenPicture</string>
+      <string>Marginalize</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="text">
+      <string>API_Marginalize</string>
      </property>
     </widget>
    </item>
@@ -48,7 +62,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="HelloCV.qrc"/>
+  <include location="MarginalizeWithCV.qrc"/>
  </resources>
  <connections/>
 </ui>

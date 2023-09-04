@@ -2,27 +2,20 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb_image.h"
 #include "../../include/GBmp.hpp"
-#include <qDebug>
 
-QImage convert_to_rgba(const QImage& image) {
-	//if (image.format() != QImage::Format_RGB32) {
-	//	qDebug() << "Image format is not RGB32.";
-	//	return QImage();
-	//}
-
-	int width = image.width();
-	int height = image.height();
-	QImage rgba_image(width, height, QImage::Format_RGBA8888);
-
-	for (int y = 0; y < height; y++) {
-		for (int x = 0; x < width; x++) {
-			QRgb rgb_pixel = image.pixel(x, y);
-			QRgb rgba_pixel = qRgba(qRed(rgb_pixel), qGreen(rgb_pixel), qBlue(rgb_pixel), 255);
-			rgba_image.setPixel(x, y, rgba_pixel);
-		}
+void setAllPixel(cv::Mat &img)
+{
+	int length = img.cols * img.rows * img.channels();
+	auto p = img.ptr<uchar>(0);
+	for (size_t i = 0; i < length; i++)
+	{
+		(*p++) = 150;
 	}
+}
 
-	return rgba_image;
+QImage ConvertFromMat(const cv::Mat & mat)
+{
+	return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), QImage::Format_Indexed8);
 }
 
 HelloCV::HelloCV(QWidget *parent)
@@ -31,27 +24,12 @@ HelloCV::HelloCV(QWidget *parent)
     ui.setupUi(this);
 	connect(ui.pushButton, &QPushButton::pressed, [=]()
 	{
-		cv::Mat cvImage = cv::imread("../1.bmp", cv::IMREAD_ANYDEPTH);
+		cv::Mat cvImage = cv::imread("../LenaRGB.bmp", cv::IMREAD_COLOR);
+		cv::cvtColor(cvImage, cvImage, cv::COLOR_BGR2RGB);
 		QImage qImage(cvImage.data, cvImage.cols, cvImage.rows, static_cast<int>(cvImage.step), QImage::Format_RGB888);
-		//ui.graphicsView->OpenImage(qImage);
-		//ui.graphicsView->OpenImage(QImage("../2.bmp"));
-		qDebug() << QImage("../2.bmp").format();
-
-
-		int w, h, d;
-		uchar *data = stbi_load("../2.bmp", &w, &h, &d, 0);
-		//uchar *data = stbi_load("../red.bmp", &w, &h, &d, 0);
-		//uchar *data = stbi_load("../green.bmp", &w, &h, &d, 0);
-		//uchar *data = stbi_load("../blue.bmp", &w, &h, &d, 0);
-		//QImage sImage(data, w, h, w*d, QImage::Format_RGB32);
-		QImage sImage(data, w, h, w*d, QImage::Format_RGBA8888);
-
-
-		ui.graphicsView->OpenImage(sImage);
+		ui.graphicsView->OpenImage(qImage);
 		ui.graphicsView->FitImage();
 	});
-	
-
 }
 
 HelloCV::~HelloCV()

@@ -17,6 +17,8 @@ public:
 	void OpenImage(const QPixmap& _img);
 	void OpenImage(const QImage& _img);
 	void FitImage();
+	void DrawRect(const QRectF& rect ,const QPen p = QPen(Qt::red));
+	void DrawPolygon(const QVector<QPointF>& polygon, const QPen p = QPen(Qt::red));
 protected:
 	void mouseDoubleClickEvent(QMouseEvent *_event) override;
 	void mousePressEvent(QMouseEvent *_event) override;
