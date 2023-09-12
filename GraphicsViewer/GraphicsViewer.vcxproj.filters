@@ -9,13 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Translation Files">
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="AbstractItem">
+      <UniqueIdentifier>{c3d8321f-55c8-463f-b122-db6819a9101f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +29,15 @@
     </ClInclude>
     <ClInclude Include="pGraphicsViewerImpl.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pAbstractItem.h">
+      <Filter>AbstractItem</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewerDef.h">
+      <Filter>AbstractItem</Filter>
+    </ClInclude>
+    <ClInclude Include="pAbstractItemImpl.h">
+      <Filter>AbstractItem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

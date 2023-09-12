@@ -24,11 +24,12 @@ HelloCV::HelloCV(QWidget *parent)
     ui.setupUi(this);
 	connect(ui.pushButton, &QPushButton::pressed, [=]()
 	{
-		cv::Mat cvImage = cv::imread("../LenaRGB.bmp", cv::IMREAD_COLOR);
-		cv::cvtColor(cvImage, cvImage, cv::COLOR_BGR2RGB);
-		QImage qImage(cvImage.data, cvImage.cols, cvImage.rows, static_cast<int>(cvImage.step), QImage::Format_RGB888);
-		ui.graphicsView->OpenImage(qImage);
+		ui.graphicsView->OpenImage(QImage("../rings.png"));
 		ui.graphicsView->FitImage();
+	});
+	connect(ui.pushButton_2, &QPushButton::pressed, [=]()
+	{
+		ui.graphicsView->testPolygon();
 	});
 }
 

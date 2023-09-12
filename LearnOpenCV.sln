@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloCV", "HelloCV\HelloCV.vcxproj", "{092EE5DF-A3B4-46FA-A1DF-CB33F7A2890C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A3706A23-2911-44F1-84DE-64BBECE308BE} = {A3706A23-2911-44F1-84DE-64BBECE308BE}
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA} = {16E415BA-C4FB-44CB-85FE-26D0B961FBFA}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsViewer", "GraphicsViewer\GraphicsViewer.vcxproj", "{A3706A23-2911-44F1-84DE-64BBECE308BE}"
@@ -19,6 +20,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HistogramWithCV", "HistogramWithCV\HistogramWithCV.vcxproj", "{FD843E47-A37C-462D-84F1-E4BDBE5164A1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugDetect", "BugDetect\BugDetect.vcxproj", "{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "morphologyExWithCV", "morphologyExWithCV\morphologyExWithCV.vcxproj", "{F7B50475-B44C-4C37-9571-8126D45F5DDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphicsViewerSupport", "GraphicsViewerSupport", "{8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pPolygonItem", "pPolygonItem\pPolygonItem.vcxproj", "{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,9 +61,21 @@ Global
 		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Debug|x64.Build.0 = Debug|x64
 		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Release|x64.ActiveCfg = Release|x64
 		{60BD40BB-5BBE-4B77-8AB9-955F4DE420E8}.Release|x64.Build.0 = Release|x64
+		{F7B50475-B44C-4C37-9571-8126D45F5DDC}.Debug|x64.ActiveCfg = Debug|x64
+		{F7B50475-B44C-4C37-9571-8126D45F5DDC}.Debug|x64.Build.0 = Debug|x64
+		{F7B50475-B44C-4C37-9571-8126D45F5DDC}.Release|x64.ActiveCfg = Release|x64
+		{F7B50475-B44C-4C37-9571-8126D45F5DDC}.Release|x64.Build.0 = Release|x64
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Debug|x64.ActiveCfg = Debug|x64
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Debug|x64.Build.0 = Debug|x64
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Release|x64.ActiveCfg = Release|x64
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3706A23-2911-44F1-84DE-64BBECE308BE} = {8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}
+		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA} = {8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ADECA1F2-A8CE-44B9-B2A0-D0CEB44E0DFC}

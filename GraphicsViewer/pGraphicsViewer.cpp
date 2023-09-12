@@ -1,13 +1,23 @@
 #include "pGraphicsViewer.h"
 #include <QWheelEvent>
 #include <QScrollBar>
+#include <QSurfaceFormat>
+#include <QOpenGLWidget>
+#include <QGLFormat>
+#include <QMessageBox>
+
 pGraphicsViewer::pGraphicsViewer(QWidget * parent)
 	: QGraphicsView(parent), impl(new pGraphicsViewerImpl{this})
 {
 	setScene(impl->scene);
 	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
 	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
+	if (!impl->InitItemFunc())
+	{
+		QMessageBox::critical(this, "Module error", "wrong!");
+	}
 }
+
 
 void pGraphicsViewer::OpenImage(const QPixmap & _img)
 {
@@ -34,31 +44,75 @@ void pGraphicsViewer::DrawPolygon(const QVector<QPointF>& polygon, const QPen p)
 	impl->scene->addPolygon(polygon, p);
 }
 
-void pGraphicsViewer::mouseDoubleClickEvent(QMouseEvent * _event)
+QGraphicsLineItem * pGraphicsViewer::DrawLine(const QLineF & line, const QPen p)
 {
-	FitImage();
+	return impl->scene->addLine(line, p);
+}
+
+void pGraphicsViewer::ClearItems()
+{
+	for (auto i : impl->scene->items())
+	{
+		impl->scene->removeItem(i);
+	}
+}
+
+void pGraphicsViewer::testPolygon()
+{
+	impl->curItem = impl->mapItemFunc["polygon"]();
+	setMouseTracking(true);
+}
+
+void pGraphicsViewer::mouseDoubleClickEvent(QMouseEvent * event)
+{
+	if (impl->curItem)
+	{
+		impl->curItem->GetInterAct(0)(event, impl.get());
+	}
+	else
+	{
+		FitImage();
+	}
 }
 
 void pGraphicsViewer::mousePressEvent(QMouseEvent * event)
 {
-	impl->ptPressed = mapToScene(event->pos());
-	impl->isPressed = true;
+	if (impl->curItem)
+	{
+		impl->curItem->GetInterAct(1)(event, impl.get());
+	}
+	else
+	{
+		impl->ptPressed = mapToScene(event->pos());
+		impl->isPressed = true;
+	}
+
 }
 
 void pGraphicsViewer::mouseMoveEvent(QMouseEvent * event)
 {
-	if (impl->isPressed)
+	if (impl->curItem)
+	{
+		impl->curItem->GetInterAct(2)(event, impl.get());
+	}
+	else if (impl->isPressed)
 	{
 		QPointF gap = matrix().m11() * (mapToScene(event->pos()) - impl->ptPressed);
 		verticalScrollBar()->setValue(-gap.y() + verticalScrollBar()->value());
 		horizontalScrollBar()->setValue(-gap.x() + horizontalScrollBar()->value());
 	}
-
 }
 
 void pGraphicsViewer::mouseReleaseEvent(QMouseEvent * event)
 {
-	impl->isPressed = false;
+	if (impl->curItem)
+	{
+		impl->curItem->GetInterAct(3)(event, impl.get());
+	}
+	else if (impl->isPressed)
+	{
+		impl->isPressed = false;
+	}
 }
 
 void pGraphicsViewer::wheelEvent(QWheelEvent * _event)

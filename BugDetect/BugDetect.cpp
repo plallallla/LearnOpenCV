@@ -64,7 +64,7 @@ BugDetect::BugDetect(QWidget *parent)
 		//cv::addWeighted(xImg, 0.5, yImg, 0.5, 0, cvImage);
 		cv::convertScaleAbs(cvImage, cvImage);//将输入图像的像素值根据给定的缩放因子和偏移量进行线性变换，然后取绝对值
 		cv::GaussianBlur(cvImage, cvImage, cv::Size(9, 9), 0);
-		cv::threshold(cvImage, cvImage,90,255,cv::THRESH_BINARY);
+		cv::threshold(cvImage, cvImage, 90, 255, cv::THRESH_BINARY);
 		show8Gray(cvImage);
 
 	});
@@ -145,6 +145,7 @@ BugDetect::BugDetect(QWidget *parent)
 				polygon << QPointF{ (qreal)contours[i][j].x, (qreal)contours[i][j].y };
 			}
 		}
+		ui.graphicsView->ClearItems();
 		ui.graphicsView->DrawPolygon(polygon);
 		//qDebug() << contours;
 		//qDebug() << hierarchy;
@@ -183,6 +184,7 @@ BugDetect::BugDetect(QWidget *parent)
 				polygon << QPointF{ (qreal)contours[i][j].x, (qreal)contours[i][j].y };
 			}
 		}
+		ui.graphicsView->ClearItems();
 		ui.graphicsView->DrawRect(QPolygonF(polygon).boundingRect());
 		show8Gray(cvImage);
 
@@ -222,6 +224,7 @@ BugDetect::BugDetect(QWidget *parent)
 		cv::Mat oriImage = cv::imread("../bug.png", cv::IMREAD_COLOR);
 		cv::cvtColor(oriImage, oriImage, cv::COLOR_BGR2RGB);
 		QImage qImage(oriImage.data, oriImage.cols, oriImage.rows, static_cast<int>(oriImage.step), QImage::Format_RGB888);
+		ui.graphicsView->ClearItems();
 		ui.graphicsView->OpenImage(qImage.copy(QPolygonF(polygon).boundingRect().toRect()));
 		ui.graphicsView->FitImage();
 
@@ -234,6 +237,7 @@ BugDetect::~BugDetect()
 void BugDetect::show8Gray(const cv::Mat & img)
 {
 	QImage qImage(img.data, img.cols, img.rows, static_cast<int>(img.step), QImage::Format_Grayscale8);
+	//bool rlt = qImage.save("../bit.png");
 	ui.graphicsView->OpenImage(qImage);
 	ui.graphicsView->FitImage();
 }
