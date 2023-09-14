@@ -7,18 +7,42 @@ pPolygonItemImpl::pPolygonItemImpl(pPolygonItem * _impl)
 {
 }
 
+QPainterPath pPolygonItemImpl::ShapeLine(const QPointF & pt1, const QPointF & pt2) const
+{
+	QPainterPath ans;
+	QLineF line = QLineF(pt1, pt2);
+	QPointF center = (pt1 + pt2) / 2;
+	qreal angle = line.angleTo(QLineF(QPointF(0, 0), QPointF(1, 0)));
+	qreal length = line.length();
+	QRect rect(-(length + 10) / 2, -10 / 2, length + 10, 10);
+	QTransform t;
+	t.translate(center.x(), center.y());
+	t.rotate(angle);
+	ans.addPolygon(t.mapToPolygon(rect));
+	ans.closeSubpath();
+	return ans;
+}
+
 #include <qDebug>
 
 MouseInterAct pPolygonItemImpl::double_click = [](QMouseEvent *event, pGraphicsViewerImpl *view)->void
 {
-	view->scene->addLine(QLineF(view->vecPoints[0], view->impl->mapToScene(event->pos())), QPen(Qt::red, 2));
-	view->curItem = nullptr;
-	view->vecPoints.clear();
-	view->vecLines.clear();
 	view->isPressed = false;
 	view->impl->setMouseTracking(false);
+
+	for (int i = 0;i < view->vecLines.size(); i++)
+	{
+		view->scene->removeItem(view->vecLines[i]);
+	}
+	view->scene->addPolygon(view->vecPoints,QPen(Qt::green));
+	view->vecLines.clear();
+	static_cast<pPolygonItem*>(view->curItem)->SetPolygon(view->vecPoints);
+	view->vecPoints.clear();
 	view->scene->addItem(view->curItem);
 	view->curItem = nullptr;
+
+
+
 	qDebug() << view->scene->items();
 };
 
@@ -33,6 +57,7 @@ MouseInterAct pPolygonItemImpl::press = [](QMouseEvent *event, pGraphicsViewerIm
 	}
 	view->vecLines << view->scene->addLine(QLineF(view->ptPressed, view->ptPressed), QPen(Qt::red, 2));
 	view->isPressed = true;
+	qDebug() << view->scene->items();
 };
 
 MouseInterAct pPolygonItemImpl::move = [](QMouseEvent *event, pGraphicsViewerImpl *view)->void 

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphicsViewerSupport", "Gr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pPolygonItem", "pPolygonItem\pPolygonItem.vcxproj", "{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pRectItem", "pRectItem\pRectItem.vcxproj", "{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -69,6 +71,10 @@ Global
 		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Debug|x64.Build.0 = Debug|x64
 		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Release|x64.ActiveCfg = Release|x64
 		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA}.Release|x64.Build.0 = Release|x64
+		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Debug|x64.ActiveCfg = Debug|x64
+		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Debug|x64.Build.0 = Debug|x64
+		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Release|x64.ActiveCfg = Release|x64
+		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A3706A23-2911-44F1-84DE-64BBECE308BE} = {8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}
 		{16E415BA-C4FB-44CB-85FE-26D0B961FBFA} = {8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}
+		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757} = {8B4A52AC-2CBE-47A7-ADAF-085A5401FA7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ADECA1F2-A8CE-44B9-B2A0-D0CEB44E0DFC}

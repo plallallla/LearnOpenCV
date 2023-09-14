@@ -23,18 +23,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pPolygonItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClInclude Include="pPolygonItem.h">
+    <ClInclude Include="prectitem_global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pPolygonItemImpl.h">
+    <ClCompile Include="pRectItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="pRectItemImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pRectItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pPolygonItemImpl.cpp">
+    <ClCompile Include="pRectItemImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

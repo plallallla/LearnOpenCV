@@ -1,23 +1,23 @@
 #pragma once
 
+#include "prectitem_global.h"
 #include "../GraphicsViewer/pAbstractItem.h"
-#include "pPolygonItemImpl.h"
+#include "pRectItemImpl.h"
 #include <QGraphicsItem>
 #include <QScopedPointer>
 
-class pPolygonItemImpl;
-class pPolygonItem : public pAbstractItem
+class pRectItemImpl;
+class pRectItem : public pAbstractItem
 {
 public:
-    pPolygonItem();
+	pRectItem();
 
 	QRectF boundingRect() const override;
 	MouseInterAct GetInterAct(int type) override;
 	void SetPen(const QPen& pen) override;
 	void SetBrush(const QBrush& brush) override;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) override;
-	QPainterPath shape() const override;
-	void SetPolygon(const QPolygonF& data);
+
 
 protected:
 	//事件响应函数,移动、形变均基于以下函数的联动
@@ -26,6 +26,5 @@ protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 	void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 private:
-	QScopedPointer<pPolygonItemImpl> impl;
+	QScopedPointer<pRectItemImpl> impl;
 };
-

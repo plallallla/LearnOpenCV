@@ -10,5 +10,4 @@ public:
 	virtual MouseInterAct GetInterAct(int type) = 0;
 	virtual void SetPen(const QPen& pen) = 0;
 	virtual void SetBrush(const QBrush& brush) = 0;
-	virtual int Test() = 0;
 };

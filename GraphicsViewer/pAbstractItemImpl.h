@@ -5,8 +5,8 @@
 class pAbstractItemImpl
 {
 protected:
-	QPen pen;
-	QBrush brush;
+	QPen pen{ Qt::red,3 };
+	QBrush brush{ Qt::transparent };
 	static MouseInterAct double_click;
 	static MouseInterAct press;
 	static MouseInterAct move;
