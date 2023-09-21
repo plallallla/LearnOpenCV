@@ -7,7 +7,7 @@ pPolygonItemImpl::pPolygonItemImpl(pPolygonItem * _impl)
 {
 }
 
-QPainterPath pPolygonItemImpl::ShapeLine(const QPointF & pt1, const QPointF & pt2) const
+QPainterPath pPolygonItemImpl::LineToRectPath(const QPointF & pt1, const QPointF & pt2) const
 {
 	QPainterPath ans;
 	QLineF line = QLineF(pt1, pt2);
@@ -24,25 +24,20 @@ QPainterPath pPolygonItemImpl::ShapeLine(const QPointF & pt1, const QPointF & pt
 }
 
 #include <qDebug>
-
 MouseInterAct pPolygonItemImpl::double_click = [](QMouseEvent *event, pGraphicsViewerImpl *view)->void
 {
 	view->isPressed = false;
 	view->impl->setMouseTracking(false);
 
-	for (int i = 0;i < view->vecLines.size(); i++)
+	for (int i = 0;i < view->vecTempItems.size(); i++)
 	{
-		view->scene->removeItem(view->vecLines[i]);
+		view->scene->removeItem(view->vecTempItems[i]);
 	}
-	view->scene->addPolygon(view->vecPoints,QPen(Qt::green));
-	view->vecLines.clear();
+	view->vecTempItems.clear();
 	static_cast<pPolygonItem*>(view->curItem)->SetPolygon(view->vecPoints);
 	view->vecPoints.clear();
 	view->scene->addItem(view->curItem);
 	view->curItem = nullptr;
-
-
-
 	qDebug() << view->scene->items();
 };
 
@@ -51,13 +46,12 @@ MouseInterAct pPolygonItemImpl::press = [](QMouseEvent *event, pGraphicsViewerIm
 	qDebug() << __func__ << "press" << press << view->impl->objectName();
 	view->ptPressed = view->impl->mapToScene(event->pos());
 	view->vecPoints << view->ptPressed;
-	if (view->vecLines.isEmpty())
+	if (view->vecTempItems.isEmpty())
 	{
-		view->vecLines << view->scene->addLine(QLineF(view->vecPoints[0], view->ptPressed), QPen(Qt::red, 2));
+		view->vecTempItems << view->scene->addLine(QLineF(view->vecPoints[0], view->ptPressed), QPen(Qt::red, 2));
 	}
-	view->vecLines << view->scene->addLine(QLineF(view->ptPressed, view->ptPressed), QPen(Qt::red, 2));
+	view->vecTempItems << view->scene->addLine(QLineF(view->ptPressed, view->ptPressed), QPen(Qt::red, 2));
 	view->isPressed = true;
-	qDebug() << view->scene->items();
 };
 
 MouseInterAct pPolygonItemImpl::move = [](QMouseEvent *event, pGraphicsViewerImpl *view)->void 
@@ -65,8 +59,8 @@ MouseInterAct pPolygonItemImpl::move = [](QMouseEvent *event, pGraphicsViewerImp
 	qDebug() << __func__ << "move" << move << view->impl->objectName();
 	if (view->isPressed)
 	{
-		view->vecLines.first()->setLine(QLineF(view->vecPoints[0], view->impl->mapToScene(event->pos())));
-		view->vecLines.last()->setLine(QLineF(view->ptPressed, view->impl->mapToScene(event->pos())));
+		static_cast<QGraphicsLineItem *>(view->vecTempItems.first())->setLine(QLineF(view->vecPoints[0], view->impl->mapToScene(event->pos())));
+		static_cast<QGraphicsLineItem *>(view->vecTempItems.last())->setLine(QLineF(view->ptPressed, view->impl->mapToScene(event->pos())));
 	}
 };
 

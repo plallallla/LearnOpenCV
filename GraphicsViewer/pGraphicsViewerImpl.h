@@ -21,5 +21,5 @@ public:
 	pAbstractItem *curItem = nullptr;
 	QMap<QString, fGetItem> mapItemFunc;
 	QVector<QPointF> vecPoints;
-	QVector<QGraphicsLineItem*> vecLines;
+	QVector<QGraphicsItem*> vecTempItems;
 };

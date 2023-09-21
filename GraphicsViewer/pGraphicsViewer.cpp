@@ -63,16 +63,24 @@ void pGraphicsViewer::testPolygon()
 	setMouseTracking(true);
 }
 
+void pGraphicsViewer::testRect()
+{
+	impl->curItem = impl->mapItemFunc["rectangle"]();
+	auto i = impl->curItem;
+	setMouseTracking(true);
+}
+
 void pGraphicsViewer::mouseDoubleClickEvent(QMouseEvent * event)
 {
 	if (impl->curItem)
 	{
 		impl->curItem->GetInterAct(0)(event, impl.get());
 	}
-	else
+	else if(scene()->selectedItems().isEmpty())
 	{
 		FitImage();
 	}
+	QGraphicsView::mouseDoubleClickEvent(event);
 }
 
 void pGraphicsViewer::mousePressEvent(QMouseEvent * event)
@@ -81,12 +89,12 @@ void pGraphicsViewer::mousePressEvent(QMouseEvent * event)
 	{
 		impl->curItem->GetInterAct(1)(event, impl.get());
 	}
-	else
+	else if (scene()->selectedItems().isEmpty())
 	{
 		impl->ptPressed = mapToScene(event->pos());
 		impl->isPressed = true;
 	}
-
+	QGraphicsView::mousePressEvent(event);
 }
 
 void pGraphicsViewer::mouseMoveEvent(QMouseEvent * event)
@@ -95,12 +103,13 @@ void pGraphicsViewer::mouseMoveEvent(QMouseEvent * event)
 	{
 		impl->curItem->GetInterAct(2)(event, impl.get());
 	}
-	else if (impl->isPressed)
+	else if (impl->isPressed && scene()->selectedItems().isEmpty())
 	{
 		QPointF gap = matrix().m11() * (mapToScene(event->pos()) - impl->ptPressed);
 		verticalScrollBar()->setValue(-gap.y() + verticalScrollBar()->value());
 		horizontalScrollBar()->setValue(-gap.x() + horizontalScrollBar()->value());
 	}
+	QGraphicsView::mouseMoveEvent(event);
 }
 
 void pGraphicsViewer::mouseReleaseEvent(QMouseEvent * event)
@@ -109,25 +118,26 @@ void pGraphicsViewer::mouseReleaseEvent(QMouseEvent * event)
 	{
 		impl->curItem->GetInterAct(3)(event, impl.get());
 	}
-	else if (impl->isPressed)
+	else if (impl->isPressed && scene()->selectedItems().isEmpty())
 	{
 		impl->isPressed = false;
 	}
+	QGraphicsView::mouseReleaseEvent(event);
 }
 
-void pGraphicsViewer::wheelEvent(QWheelEvent * _event)
+void pGraphicsViewer::wheelEvent(QWheelEvent * event)
 {
-	if ((_event->delta() > 0) && (this->matrix().m11() >= 10))
+	if ((event->delta() > 0) && (this->matrix().m11() >= 10))
 	{
 		return;
 	}
-	else if ((_event->delta() < 0) && (this->matrix().m11() <= 0.1))
+	else if ((event->delta() < 0) && (this->matrix().m11() <= 0.1))
 	{
 		return;
 	}
 	else
 	{
-		int wheelDeltaValue = _event->delta();
+		int wheelDeltaValue = event->delta();
 		if (wheelDeltaValue > 0)
 		{
 			scale(1.2, 1.2);

@@ -21,13 +21,14 @@ public:
 	void ClearItems();
 
 	void testPolygon();
+	void testRect();
 
 protected:
-	void mouseDoubleClickEvent(QMouseEvent *_event) override;
-	void mousePressEvent(QMouseEvent *_event) override;
-	void mouseMoveEvent(QMouseEvent *_event) override;
-	void mouseReleaseEvent(QMouseEvent *_event) override;
-	void wheelEvent(QWheelEvent *_event) override;
+	void mouseDoubleClickEvent(QMouseEvent *event) override;
+	void mousePressEvent(QMouseEvent *event) override;
+	void mouseMoveEvent(QMouseEvent *event) override;
+	void mouseReleaseEvent(QMouseEvent *event) override;
+	void wheelEvent(QWheelEvent *event) override;
 private:
 	friend class pGraphicsViewerImpl;
 	QScopedPointer<pGraphicsViewerImpl> impl;

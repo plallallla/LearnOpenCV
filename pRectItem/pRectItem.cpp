@@ -1,6 +1,11 @@
 #include "pRectItem.h"
 
-pRectItem::pRectItem()
+extern "C" Q_DECL_EXPORT  pAbstractItem * ItemCreator()
+{
+	return new pRectItem;
+}
+
+pRectItem::pRectItem() : impl{ new pRectItemImpl{this} }
 {
 }
 
@@ -11,14 +16,27 @@ QRectF pRectItem::boundingRect() const
 
 MouseInterAct pRectItem::GetInterAct(int type)
 {
-	return MouseInterAct();
+	switch (type)
+	{
+	case 0:
+		return impl->double_click;
+	case 1:
+		return impl->press;
+	case 2:
+		return impl->move;
+	case 3:
+		return impl->release;
+	default:
+		break;
+	}
+	return nullptr;
 }
 
-void pRectItem::SetPen(const QPen & pen)
+void pRectItem::SetPen(const QPen & pen, bool isSelected)
 {
 }
 
-void pRectItem::SetBrush(const QBrush & brush)
+void pRectItem::SetBrush(const QBrush & brush, bool isSelected)
 {
 }
 

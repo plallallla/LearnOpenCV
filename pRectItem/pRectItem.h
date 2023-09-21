@@ -1,6 +1,5 @@
 #pragma once
 
-#include "prectitem_global.h"
 #include "../GraphicsViewer/pAbstractItem.h"
 #include "pRectItemImpl.h"
 #include <QGraphicsItem>
@@ -14,10 +13,9 @@ public:
 
 	QRectF boundingRect() const override;
 	MouseInterAct GetInterAct(int type) override;
-	void SetPen(const QPen& pen) override;
-	void SetBrush(const QBrush& brush) override;
+	void SetPen(const QPen& pen, bool isSelected = false) override;
+	void SetBrush(const QBrush& brush, bool isSelected = false) override;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) override;
-
 
 protected:
 	//事件响应函数,移动、形变均基于以下函数的联动
@@ -26,5 +24,6 @@ protected:
 	void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 	void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 private:
+	friend class pRectItemImpl;
 	QScopedPointer<pRectItemImpl> impl;
 };

@@ -23,9 +23,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="prectitem_global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClCompile Include="pRectItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

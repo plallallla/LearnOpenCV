@@ -87,7 +87,6 @@
   <ItemGroup>
     <ClCompile Include="pRectItemImpl.cpp" />
     <ClInclude Include="pRectItemImpl.h" />
-    <ClInclude Include="prectitem_global.h" />
     <ClInclude Include="pRectItem.h" />
     <ClCompile Include="pRectItem.cpp" />
   </ItemGroup>

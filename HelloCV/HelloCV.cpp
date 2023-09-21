@@ -31,6 +31,10 @@ HelloCV::HelloCV(QWidget *parent)
 	{
 		ui.graphicsView->testPolygon();
 	});
+	connect(ui.pushButton_3, &QPushButton::pressed, [=]()
+	{
+		ui.graphicsView->testRect();
+	});
 }
 
 HelloCV::~HelloCV()
