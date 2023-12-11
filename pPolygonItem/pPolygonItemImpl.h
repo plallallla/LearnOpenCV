@@ -14,7 +14,7 @@ public:
 	pPolygonItemImpl(pPolygonItem * _impl);
 private:
 	friend class pPolygonItem;
-	enum class Mode { Default, Move, Change, }mode = Mode::Default;
+	enum class Mode { Default, Move, Change, } mode = Mode::Default;
 	QPainterPath LineToRectPath(const QPointF &pt1, const QPointF &pt2) const;
 	QScopedPointer<pPolygonItem> impl;
 	QPolygonF polygon;

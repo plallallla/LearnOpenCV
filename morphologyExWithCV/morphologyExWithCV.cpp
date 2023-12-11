@@ -73,7 +73,7 @@ morphologyExWithCV::morphologyExWithCV(QWidget *parent)
 		cv::Mat cvImage = cv::imread("../shapes_and_colors.jpg");
 		cv::cvtColor(cvImage, cvImage, cv::COLOR_BGR2GRAY);
 		cv::threshold(cvImage, cvImage, 90, 255, cv::THRESH_BINARY);
-		cv::Mat X = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(cvImage.cols / 32, 1));
+		cv::Mat X = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(cvImage.cols / 32,  1));
 		cv::Mat dImage;
 		cv::Mat eImage;
 		cv::dilate(cvImage, dImage, X);

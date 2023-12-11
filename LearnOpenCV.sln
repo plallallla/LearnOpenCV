@@ -30,6 +30,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pPolygonItem", "pPolygonIte
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pRectItem", "pRectItem\pRectItem.vcxproj", "{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImgGrayOut", "ImgGrayOut\ImgGrayOut.vcxproj", "{169B5B1C-28EB-491E-B9BE-E077CF1899C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -76,6 +78,10 @@ Global
 		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Debug|x64.Build.0 = Debug|x64
 		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Release|x64.ActiveCfg = Release|x64
 		{3362C462-5BEC-4E9C-A0ED-7495FAB9D757}.Release|x64.Build.0 = Release|x64
+		{169B5B1C-28EB-491E-B9BE-E077CF1899C2}.Debug|x64.ActiveCfg = Debug|x64
+		{169B5B1C-28EB-491E-B9BE-E077CF1899C2}.Debug|x64.Build.0 = Debug|x64
+		{169B5B1C-28EB-491E-B9BE-E077CF1899C2}.Release|x64.ActiveCfg = Release|x64
+		{169B5B1C-28EB-491E-B9BE-E077CF1899C2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

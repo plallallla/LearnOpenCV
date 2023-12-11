@@ -64,6 +64,11 @@ ImgCvtWithCV::ImgCvtWithCV(QWidget *parent)
 		ui.graphicsView->OpenImage(qImage);
 		ui.graphicsView->FitImage();
 	});
+	connect(ui.pushButton_6, &QPushButton::pressed, [=]()
+	{
+		QImage img("../Image.bmp");
+		img.save("SaveTest.png");
+	});
 }
 
 ImgCvtWithCV::~ImgCvtWithCV()

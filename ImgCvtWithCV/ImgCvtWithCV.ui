@@ -14,7 +14,7 @@
    <string>ImgCvtWithCV</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="7">
+   <item row="0" column="8">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -27,14 +27,14 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="5">
-    <widget class="QPushButton" name="pushButton_4">
+   <item row="0" column="6">
+    <widget class="QPushButton" name="pushButton_5">
      <property name="text">
-      <string>yarG</string>
+      <string>Log</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="8">
+   <item row="1" column="0" colspan="9">
     <widget class="pGraphicsViewer" name="graphicsView"/>
    </item>
    <item row="0" column="0">
@@ -51,6 +51,13 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="5">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="text">
+      <string>yarG</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QPushButton" name="pushButton_2">
      <property name="text">
@@ -58,10 +65,10 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="6">
-    <widget class="QPushButton" name="pushButton_5">
+   <item row="0" column="7">
+    <widget class="QPushButton" name="pushButton_6">
      <property name="text">
-      <string>Log</string>
+      <string>SaveTest</string>
      </property>
     </widget>
    </item>

@@ -12,7 +12,7 @@ public:
 	pGraphicsViewerImpl(pGraphicsViewer *_impl);
 private:
 	bool InitItemFunc();
-public:
+private:
 	friend class pGraphicsViewer;
 	pGraphicsViewer* impl;
 	pGraphicsScene* scene;
