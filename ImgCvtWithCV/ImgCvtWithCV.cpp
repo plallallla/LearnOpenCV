@@ -17,6 +17,7 @@ ImgCvtWithCV::ImgCvtWithCV(QWidget *parent)
 		cv::Mat cvImage = cv::imread("../LenaRGB.bmp");
 		cv::cvtColor(cvImage, cvImage, cv::COLOR_BGR2GRAY);
 		QImage qImage(cvImage.data, cvImage.cols, cvImage.rows, static_cast<int>(cvImage.step), QImage::Format_Grayscale8);
+		qImage.save("../LenaGRAY.bmp");
 		ui.graphicsView->OpenImage(qImage);
 		ui.graphicsView->FitImage();
 	});
